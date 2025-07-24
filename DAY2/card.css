@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  background-color: #eaeaea;
+}
+
+/* Container for all cards */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  gap: 20px;  
+  flex-wrap: wrap; 
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Individual card */
+.card {
+  max-width: 300px;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  color: #333;
+  padding: 20px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: all 0.3s ease; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover effect for card */
+.card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+/* Image styling */
+.img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Heading */
+.card h3 {
+  margin: 10px 0;
+}
+
+/* Paragraph */
+.card p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 10px 0;
+  flex-grow: 1; 
+}
+
+/* Button */
+.card button {
+  width: 90px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: indigo;
+  color: #fff;
+  margin-top: auto; 
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #4338ca;
+}
+
+@media(max-width:768px){
+ .card-container{
+    flex-direction: column;
+    align-items: center;
+ }
+}
