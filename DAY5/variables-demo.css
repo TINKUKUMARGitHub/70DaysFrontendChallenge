@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+:root {
+  --primary-color: #f46214;
+  --secondary-color: #1f2937;
+  --ternary-color: #6366f1;
+  --btn-color: #3f3254;
+  --btn-primary-color: #51f705;
+  --text-color: #fff;
+}
+button {
+  margin: 20px;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.btn-1 {
+  background-color: var(--btn-color);
+}
+.btn-2 {
+  background-color: var(--btn-primary-color);
+}
+.btn-3 {
+  background-color: var(--primary-color);
+}
+.btn-4 {
+  background-color: var(--secondary-color);
+}
+.btn-5 {
+  background-color: var(--ternary-color);
+}

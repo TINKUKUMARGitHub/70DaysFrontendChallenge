@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container{
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.pulse,.slide{
+    width: 150px;
+    height: 150px;
+
+    border-radius: 5px;
+    margin: 30px;
+}
+.pulse{
+    border: 2px solid red;
+    color: #182af3;
+    background: url(pulse-img.jpg);
+    background-size: contain;
+    animation: pulse 5s ease-in infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform: scale(1);}
+    50%{transform: scale(1.5);}
+}
+.slide{
+    border: 1px solid blue;
+    color: white;
+    animation: slide 10s ease-in-out infinite;
+}
+@keyframes slide{
+    0%{transform: translateX(100%);}
+    25%{transform: translateX(50%);}
+    75%{transform: translateY(-50%);}
+    100%{transform: translateY(0);}
+    100%{transform: translateX(0);}
+    0%{background-color: #ff8c00;}
+    25%{background-color: chartreuse;}
+    75%{background-color: #f31743;}
+    100%{background-color: deepskyblue;}
+}
