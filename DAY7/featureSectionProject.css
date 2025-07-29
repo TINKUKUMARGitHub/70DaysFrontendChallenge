@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.badge {
+  position: absolute;
+  right: 30px;
+}
+h2 {
+  background-color: bisque;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+  gap: 20px;
+}
+.left-column {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.left-column h1 {
+  margin-top: 30px;
+}
+.left-column p {
+  padding: 10px;
+  text-align: center;
+  align-self: center;
+}
+.left-column button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.left-column button:hover{
+   transform: scale(1.2);
+}
+.right-column {
+  position: fixed;
+  top: 47px;
+  right: 20px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background: url("dianna-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.btn-bottom {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  border-radius: 8px;
+  padding: 15px 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+@media (max-width: 768px) {
+  .right-column {
+    position: relative;
+    margin-left: 20px;
+    top: -10px;
+  }
+  .badge {
+    position: relative;
+    left: 30px;
+    top: 10px;
+  }
+  .btn-bottom {
+    position: relative;
+    left: 120px;
+    margin-top: 10px;
+  }
+}

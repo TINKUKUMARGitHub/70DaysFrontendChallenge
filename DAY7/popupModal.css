@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  text-align: center;
+  padding: 50px;
+}
+h2{
+    margin-bottom: 20px;
+}
+.open-btn {
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Backdrop Wrapper */
+.modal-wrapper {
+  display: none; 
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+/* Show when targeted */
+.modal-wrapper:target {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Box */
+.modal {
+  position: absolute;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Close Button */
+.close-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 15px;
+  background: crimson;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
