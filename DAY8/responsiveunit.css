@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem; /* 20px = 1.25rem */
+  padding: 1rem;
+}
+
+.box {
+  margin: 1.25rem; /* 20px = 1.25rem */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.125rem solid gray; /* 2px = 0.125rem */
+  border-radius: 0.3125rem; /* 5px = 0.3125rem */
+  color: white;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Individual Box Styles */
+.box-1 {
+  width: 10rem;
+  height: 10rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-color: blue;
+}
+
+.box-2 {
+  width: 10rem; /* 160px = 10rem (root-based) */
+  height: 10rem;
+  font-size: 2rem; /* 32px = 2rem */
+  padding: 0.5rem; /* 8px = 0.5rem */
+  background-color: #00ffee;
+}
+
+.box-3 {
+  font-size: 1rem; /* 1em based on parent, set to 1rem here */
+  width: 10em; /* 10 × 1rem = 10rem */
+  height: 10em;
+  padding: 0.5em;
+  background-color: #ff1900;
+}
+
+.box-4 {
+  width: 12%;
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-color: #91ff00;
+  height: auto;
+}
+
+.box-5 {
+  width: 12vw;
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-color: #ff00c8;
+  height: auto;
+}
+
+/* Media Queries - Responsive Layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    justify-content: center;
+  }
+  .box {
+    width: 22.5rem; /* 360px = 22.5rem */
+    height: 22.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    width: 18.75rem; /* 300px = 18.75rem */
+    height: 18.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-4,
+  .box-5 {
+    width: 10rem; /* 160px = 10rem */
+    height: 9.375rem; /* 150px = 9.375rem */
+  }
+}
