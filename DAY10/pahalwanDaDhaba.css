@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.dhabaMenuCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  color: #fff;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.top-heading {
+  margin-top: 15px;
+  text-align: center;
+}
+.dhaba-container {
+  display: flex;
+}
+.dhaba-logo {
+  margin: 10px 20px;
+}
+.dhaba-logo img {
+  max-width: 80px;
+  border-radius: 50%;
+}
+.dhaba-title {
+  margin: 10px 20px;
+  color: #ffff00;
+}
+.sub-heading {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+  text-align: center;
+}
+.sub-heading-2 {
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+}
+
+.dhaba-gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.dhabaMenu-left {
+  display: flex;
+  flex-direction: column;
+}
+.food-items {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 6px;
+}
+h1 {
+  margin: 5px;
+  display: inline-block;
+}
+.food-heading {
+  background-color: #dc143c;
+  text-align: center;
+  padding: 0 10px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.dhabhaImgContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px;
+  margin: 5px;
+}
+.img-1 {
+  display: flex;
+}
+.img-1 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+.address {
+  margin: 5px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+.footer-heading4 {
+  color: #ffff00;
+}
+.footer-headings4 {
+  color: #dc143c;
+}
+.available-on img {
+  width: 250px;
+  height: 50px;
+}
+.contact-no {
+  margin: 5px;
+  letter-spacing: 5px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .dhaba-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sub-heading {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    padding: 5px 0;
+  }
+  .sub-heading-2 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .address {
+    text-align: center;
+  }
+  .contact-no {
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+  }
+}

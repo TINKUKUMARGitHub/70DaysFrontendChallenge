@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* nav section css  */
+
+.nav-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+.nav-section-1,
+.nav-section-2,
+.nav-section-3 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: border 0.3s ease;
+}
+
+.search-wrapper span {
+  color: #555;
+  margin-right: 6px;
+}
+
+.search-wrapper input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-wrapper:focus-within {
+  border: 1px solid #36c;
+  box-shadow: 0 0 3px rgba(0, 0, 255, 0.3);
+}
+
+.search-btn {
+  padding: 8px 15px;
+  background-color: #36c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-link a {
+  text-decoration: none;
+}
+
+/* main section css  */
+
+.main-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+  margin: 10px;
+}
+.main-section2-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.main-section-content-part1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-section-content-part2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.indianImg-part {
+  display: flex;
+}
+.motto {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+.main-section-content ul li {
+  padding-top: 0.5rem;
+}
+.main-section-content a {
+  text-decoration: none;
+}
+.main-section-content a::before {
+  content: ">";
+  margin: 4px;
+}
+.indianImg-part {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.main-section-appearance {
+  margin-left: auto;
+  margin-right: auto;
+}
+.radio-btn {
+  margin-top: 10px;
+}
+.para {
+  margin-top: 10px;
+}
