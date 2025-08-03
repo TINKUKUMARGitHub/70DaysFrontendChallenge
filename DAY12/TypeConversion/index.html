@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type Conversion Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="heading">Type Conversion Visualizer</h1>
+    <div class="container">
+      <div class="type-convesion">
+        <div class="input-section">
+          <input type="text" placeholder="Enter Value" id="input-field" />
+        </div>
+        <div class="conversion-section">
+          <select name="conversionType" id="conversionType">
+            <option value="" disabled selected>ConversionTypeOptions</option>
+            <option value="toNumber">Number</option>
+            <option value="toString">String</option>
+            <option value="toBoolean">Boolean</option>
+          </select>
+        </div>
+      </div>
+      <div class="output-section">
+        <input type="text" placeholder="Conversion Result" id="output-field" />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
