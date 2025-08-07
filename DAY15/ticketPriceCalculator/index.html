@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ticket Price Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      background-color: #e9f5ff;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎫 Ticket Price Calculator</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name"/>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" placeholder="Enter your age"/>
+
+    <label for="type">Ticket Type:</label>
+    <select id="type">
+      <option value="general">General</option>
+      <option value="standard">Standard (+₹200)</option>
+      <option value="premium">Premium (+₹500)</option>
+    </select>
+
+    <button onclick="calculatePrice()">Calculate Price</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculatePrice() {
+      const name = document.getElementById("name").value.trim();
+      const age = parseInt(document.getElementById("age").value);
+      const type = document.getElementById("type").value;
+
+      const basePrice = 1000;
+      let discountPercent = 0;
+
+      // Discount based on age using loop
+      const ageBrackets = [
+        { max: 5, discount: 100 },
+        { max: 18, discount: 10 },
+        { max: 55, discount: 35 },
+        { max: Infinity, discount: 80 },
+      ];
+
+      for (let i = 0; i < ageBrackets.length; i++) {
+        if (age < ageBrackets[i].max) {
+          discountPercent = ageBrackets[i].discount;
+          break;
+        }
+      }
+
+      // Additional cost for ticket type using loop
+      let extraCharge = 0;
+      const ticketTypes = ["general", "standard", "premium"];
+      const ticketCharges = [0, 200, 500];
+
+      for (let i = 0; i < ticketTypes.length; i++) {
+        if (type === ticketTypes[i]) {
+          extraCharge = ticketCharges[i];
+          break;
+        }
+      }
+
+      const discountAmount = (basePrice * discountPercent) / 100;
+      const finalPrice = basePrice - discountAmount + extraCharge;
+
+      // Display result
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `
+        <strong>Name:</strong> ${name || "N/A"}<br>
+        <strong>Age:</strong> ${isNaN(age) ? "Invalid" : age}<br>
+        <strong>Base Price:</strong> ₹${basePrice}<br>
+        <strong>Discount:</strong> ${discountPercent}% (-₹${discountAmount.toFixed(2)})<br>
+        <strong>Extra Charge:</strong> ₹${extraCharge}<br>
+        <strong>Final Ticket Price:</strong> <strong>₹${finalPrice.toFixed(2)}</strong>
+      `;
+    }
+  </script>
+</body>
+</html>
