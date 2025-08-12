@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Array Inventory Manager (Shopping List)</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+        padding: 8px;
+        margin: 5px 0;
+        width: 100%;
+    }
+    button {
+        cursor: pointer;
+        border: none;
+        background: #007bff;
+        color: white;
+        border-radius: 5px;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+    .output {
+        margin-top: 15px;
+        background: #fafafa;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        min-height: 50px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Array Inventory Manager</h1>
+<div class="container">
+    <h3>Add Item</h3>
+    <input type="text" id="productName" placeholder="Product Name">
+    <input type="number" id="productPrice" placeholder="Product Price">
+    <button onclick="addItem()">Add Item</button>
+
+    <h3>Remove Item</h3>
+    <input type="text" id="removeName" placeholder="Product Name to Remove">
+    <button onclick="removeItem()">Remove Item</button>
+
+    <h3>Find Items Below Price</h3>
+    <input type="number" id="maxPrice" placeholder="Max Price">
+    <button onclick="findBelowPrice()">Find Items</button>
+
+    <h3>Show All Items (Sorted by Price)</h3>
+    <button onclick="showItems()">Show Items</button>
+
+    <div class="output" id="output">No data yet.</div>
+</div>
+
+<script>
+    let inventory = [];
+
+    function addItem() {
+        const name = document.getElementById("productName").value.trim();
+        const price = Number(document.getElementById("productPrice").value);
+        if (!name || isNaN(price) || price <= 0) {
+            alert("Enter valid product name and price!");
+            return;
+        }
+        inventory.push({ name, price });
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+        showMessage(`✅ ${name} added!`);
+    }
+
+    function removeItem() {
+        const nameToRemove = document.getElementById("removeName").value.trim();
+        if (!nameToRemove) {
+            alert("Enter a product name to remove!");
+            return;
+        }
+        const initialLength = inventory.length;
+        inventory = inventory.filter(item => item.name.toLowerCase() !== nameToRemove.toLowerCase());
+        if (inventory.length === initialLength) {
+            showMessage(`❌ No item found with name "${nameToRemove}"`);
+        } else {
+            showMessage(`🗑️ ${nameToRemove} removed!`);
+        }
+        document.getElementById("removeName").value = "";
+    }
+
+    function findBelowPrice() {
+        const max = Number(document.getElementById("maxPrice").value);
+        if (isNaN(max) || max <= 0) {
+            alert("Enter a valid max price!");
+            return;
+        }
+        const results = inventory.filter(item => item.price < max);
+        if (results.length === 0) {
+            showMessage(`❌ No items found below ₹${max}`);
+        } else {
+            showMessage(`🔍 Items below ₹${max}:<br>` + results.map(i => `${i.name} - ₹${i.price}`).join("<br>"));
+        }
+    }
+
+    function showItems() {
+        if (inventory.length === 0) {
+            showMessage("❌ Inventory is empty.");
+            return;
+        }
+        const sorted = [...inventory].sort((a, b) => a.price - b.price);
+        showMessage("📦 Inventory (sorted by price):<br>" + sorted.map(i => `${i.name} - ₹${i.price}`).join("<br>"));
+    }
+
+    function showMessage(msg) {
+        document.getElementById("output").innerHTML = msg;
+    }
+</script>
+
+</body>
+</html>
