@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Grade Processor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Grade Processor</h2>
+  <div id="result"></div>
+
+  <script>
+    let students = [
+      { name: "Alice", marks: 85 },
+      { name: "Bob", marks: 45 },
+      { name: "Charlie", marks: 60 },
+      { name: "David", marks: 30 },
+      { name: "Eva", marks: 75 }
+    ];
+
+    // Step 1: Filter students with marks >= 50
+    let passedStudents = students.filter(student => student.marks >= 50);
+
+    // Step 2: Map to name + grade (Pass/Fail for all original)
+    let gradedStudents = students.map(student => {
+      return {
+        name: student.name,
+        grade: student.marks >= 50 ? "Pass" : "Fail"
+      };
+    });
+
+    // Step 3: Use reduce() to count passing students
+    let totalPassing = students.reduce((count, student) => {
+      return count + (student.marks >= 50 ? 1 : 0);
+    }, 0);
+
+    // Step 4: Create HTML table
+    let tableHTML = `
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Grade</th>
+        </tr>
+        ${gradedStudents.map(s => `
+          <tr>
+            <td>${s.name}</td>
+            <td>${s.grade}</td>
+          </tr>
+        `).join('')}
+      </table>
+      <p><strong>Total Passing Students:</strong> ${totalPassing}</p>
+    `;
+
+    document.getElementById("result").innerHTML = tableHTML;
+  </script>
+
+</body>
+</html>
