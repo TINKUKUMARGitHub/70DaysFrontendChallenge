@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Scheduler</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    input {
+      width: 75%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 8px 12px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    ul {
+      margin-top: 15px;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      background: #fafafa;
+      margin-bottom: 8px;
+      padding: 8px;
+      border-radius: 6px;
+      border-left: 4px solid #2196f3;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: green;
+      border-left: 4px solid green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2> Task Scheduler</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task...">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    // Add Task with Callback
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const taskName = taskInput.value.trim();
+      if (!taskName) return;
+
+      const taskList = document.getElementById("taskList");
+
+      // Create a new list item
+      const li = document.createElement("li");
+      li.textContent = taskName;
+      taskList.appendChild(li);
+
+      // Clear input
+      taskInput.value = "";
+
+      // Callback after 3 seconds
+      setTimeout(() => {
+        markCompleted(li);
+      }, 3000);
+    }
+
+    // Callback function
+    function markCompleted(taskElement) {
+      taskElement.classList.add("completed");
+      taskElement.textContent += " ✅ Completed";
+    }
+  </script>
+
+</body>
+</html>
